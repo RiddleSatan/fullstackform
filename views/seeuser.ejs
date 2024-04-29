@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheet/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="main w-full h-auto bg-zinc-900 p-10">
+      <a class="mb-8 inline-block text-yellow-500" href="/">Go to home</a>
+      <h1 class="text-white mb-2 size-bold">All Users</h1>
+      <div class="cards flex w-full min-h-screen flex gap-3 flex-wrap">
+        <% if(usersData.length==0){ %>
+        <h1 class="text-zinc-500">no users found</h1>
+        <%} else {%> <% {usersData.forEach((val)=>{%>
+
+        <div class="min-w-52 p-2 rounded-md h-96 bg-zinc-700">
+          <div class="w-48 h-60 rounded-md overflow-hidden">
+            <img
+              class="w-full h-full object-cover object-top"
+              src="<%=val.imageurl%>"
+              alt=""
+            />
+          </div>
+          <h1 class="mt-1 text-yellow-500"><%=val.name%></h1>
+          <h1 class="mt-1 text-zinc-500"><%=val.email%></h1>
+          <div class="flex justify-between mt-2 text-white">
+            <a href="/edit/<%=val._id%>">Edit</a>
+            <a class="text-blue-500" href="/delete/<%=val._id%>"
+              >Delete</a
+            >
+          </div>
+        </div>
+        <%})}}%>
+      </div>
+    </div>
+    <script src="/javascripts/script.js"></script>
+  </body>
+</html>
