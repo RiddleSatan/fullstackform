@@ -56,4 +56,14 @@ app.post("/edit/:id", async (req, res) => {
   console.log(user);
 });
 
-app.listen(8000);
+app.get('/upload',(req,res)=>{
+  res.render('testMulter')
+})
+
+
+app.post('/upload',(req,res)=>{
+  // console.log(req.body) //req.body contains the values of the text fields of the form
+ // console.log(req.file)//req.file contains the files uploaded via the form.
+})
+
+app.listen(3000);
